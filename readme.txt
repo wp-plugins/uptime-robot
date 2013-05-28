@@ -18,6 +18,12 @@ Uptime Robot uses the uptimerobot.com API to display log messages relating to a 
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Add your API Key under Settings > Uptime Robot
 
+== Frequently Asked Questions ==
+
+= Which API Key do I use? =
+
+You can use either your Main API Key to pull in all Monoitors, or a Monitor-Specific API Key to pull in data for a single monitor.
+
 == Screenshots ==
 
 1. Dashboard Widget
