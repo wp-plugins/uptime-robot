@@ -22,7 +22,7 @@ Uptime Robot uses the uptimerobot.com API to display log messages relating to a 
 
 = Which API Key do I use? =
 
-You can use either your Main API Key to pull in all Monoitors, or a Monitor-Specific API Key to pull in data for a single monitor.
+You can use either your Main API Key to pull in all Monitors, or a Monitor-Specific API Key to pull in data for a single monitor.
 
 == Screenshots ==
 
