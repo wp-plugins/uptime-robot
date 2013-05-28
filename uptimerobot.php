@@ -41,7 +41,7 @@ if (!class_exists("Uptime_Robot")) {
 			// check for cached copy
 			$cache = get_option( 'uptimerobot_cache' );
 
-			if (time() < $cache['timestamp'] + 600) { // cache is < 10 minutes old. use it.
+			if ($cache != '' && time() < $cache['timestamp'] + 600) { // cache is < 10 minutes old. use it.
 				$responseJSON = $cache['data'];
 			}
 			else { // cache is stale
