@@ -1,16 +1,16 @@
 === Uptime Robot ===
 Contributors: scottnelle
-Tags: uptime, monitoring
+Tags: uptime, monitoring, server
 Requires at least: 3.5
 Tested up to: 3.5.1
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 
 A dashboard widget for monitoring your uptimerobot.com log messages
 
 == Description ==
 
-Uptime Robot uses the uptimerobot.com API to display log messages relating to a site's uptime.
+Uptime Robot uses the uptimerobot.com API to display log messages relating to a site's uptime. You must have a free uptimerobot.com account to get any use from this plugin.
 
 == Installation ==
 
@@ -19,6 +19,14 @@ Uptime Robot uses the uptimerobot.com API to display log messages relating to a 
 1. Add your API Key under Settings > Uptime Robot
 
 == Frequently Asked Questions ==
+
+= Where do I get an account? =
+
+http://uptimerobot.com/
+
+= Where do I get an API Key? =
+
+Log in to your uptimerobot.com account and go to My Settings.
 
 = Which API Key do I use? =
 
@@ -29,6 +37,11 @@ You can use either your Main API Key to pull in all Monitors, or a Monitor-Speci
 1. Dashboard Widget
 
 == Changelog ==
+
+= 0.1.1 =
+* Data now pulls via AJAX to keep the dashboard speedy
+* Prevented bad calls from caching
+* Removed some debug code
 
 = 0.1.0 =
 * Initial Release

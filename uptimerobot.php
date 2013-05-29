@@ -38,11 +38,28 @@ if (!class_exists("Uptime_Robot")) {
 
 		/* create the dashboard widget */
 		function render_dashboard_widget() {
+			?>
+			<p id="uptimerobot_loading">Loading Data</p>
+			<script>
+			// request data on load to keep the dashboard speedy
+			jQuery(window).load(function(){
+				var data = {
+					action: 'uptimerobot_get_data'
+				};
+				jQuery.get(ajaxurl, data, function(response) {
+					jQuery('#uptimerobot_dashboard_widget .inside').hide().append(response).slideDown('fast').find('#uptimerobot_loading').remove();
+				});
+			});
+			</script>
+			<?php
+		}
+
+		function uptimerobot_data() {
 			// check for cached copy
 			$cache = get_option( 'uptimerobot_cache' );
 
 			if ($cache != '' && time() < $cache['timestamp'] + 600) { // cache is < 10 minutes old. use it.
-				$responseJSON = $cache['data'];
+				$json = json_decode($cache['data']);
 			}
 			else { // cache is stale
 				// set up request 
@@ -55,8 +72,13 @@ if (!class_exists("Uptime_Robot")) {
 				$responseJSON = curl_exec($c);
 				curl_close($c);
 
-				// save to cached  option
-				update_option('uptimerobot_cache', array ( 'data' => $responseJSON, 'timestamp' => time()));
+				$json = json_decode($responseJSON);
+
+				// don't cache if there's a failture
+				if ($json !== NULL && $json->stat != 'fail') {
+					// save to cached  option
+					update_option('uptimerobot_cache', array ( 'data' => $responseJSON, 'timestamp' => time()));
+				}
 			}
 
 			$json = json_decode($responseJSON);
@@ -99,6 +121,8 @@ if (!class_exists("Uptime_Robot")) {
 			else {
 				echo 'No data available for your account. Please <a href="options-general.php?page=uptimerobot">check your API key</a> or wait for some monitoring data to become available.';
 			}
+
+			die(); // this is required to return a proper result
 		}
 
 		function add_dashboard_widget() {
@@ -144,16 +168,11 @@ if (!class_exists("Uptime_Robot")) {
 } // end class check
 
 $uptimerobot_plugin = new Uptime_Robot;
-add_action('wp_dashboard_setup', array( $uptimerobot_plugin, 'add_dashboard_widget' ) );
+add_action('wp_dashboard_setup', array( $uptimerobot_plugin, 'add_dashboard_widget' ));
 add_action('admin_menu', array($uptimerobot_plugin,'create_menu'));
+add_action('wp_ajax_uptimerobot_get_data', array( $uptimerobot_plugin, 'uptimerobot_data' ));
 
 // if submitted, process the data
 if (isset($_POST['submit_uptimerobot'])) {
 	$uptimerobot_plugin->save_options($_POST);
 }
-
-function render_time() {
-	echo timer_stop(1) . ' seconds';
-}
-
-add_action('shutdown','render_time');
