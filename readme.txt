@@ -40,7 +40,7 @@ You can use either your Main API Key to pull in all Monitors, or a Monitor-Speci
 
 = 0.1.1 =
 * Data now pulls via AJAX to keep the dashboard speedy
-* Prevented bad calls from caching
+* Prevented failed calls from caching
 * Removed some debug code
 
 = 0.1.0 =
