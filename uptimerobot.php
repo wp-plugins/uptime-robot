@@ -6,7 +6,7 @@
 Plugin Name: Uptime Robot
 Plugin URI: http://mightyworker.com/
 Description: Add a dashboard widget to monitor Uptime Robot 
-Version: 0.1.0
+Version: 0.1.1
 Author: Scott Nelle
 Author URI: http://mightyworker.com/
 License: GPLv2 or later
@@ -26,10 +26,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-*/
-
-/*
-TODO: Poll via ajax only so it never slows down the dashboard
 */
 
 if (!class_exists("Uptime_Robot")) {
@@ -141,7 +137,7 @@ if (!class_exists("Uptime_Robot")) {
 			}
 
 			echo '
-				<div class="wrap simple_301_redirects">
+				<div class="wrap uptime_robot">
 					<h2>Uptime Robot Settings</h2>
 		
 					<form method="post" action="options-general.php?page=uptimerobot&savedata=true">
