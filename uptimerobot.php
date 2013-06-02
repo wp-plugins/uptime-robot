@@ -77,9 +77,6 @@ if (!class_exists("Uptime_Robot")) {
 				}
 			}
 
-			$json = json_decode($responseJSON);
-			
-
 			// parse request
 			if ($json !== NULL && $json->stat != 'fail') {
 				$num_log_items = (intval(get_option( 'uptimerobot_log_items' )) > 0) ? intval(get_option( 'uptimerobot_log_items' )) - 1 : 5;
