@@ -6,8 +6,8 @@
 Plugin Name: Uptime Robot
 Plugin URI: http://mightyworker.com/
 Description: Add a dashboard widget to monitor Uptime Robot 
-Version: 0.1.1
-Author: Scott Nelle
+Version: 0.1.2
+Author: Scott Nellé
 Author URI: http://mightyworker.com/
 License: GPLv2 or later
 */
@@ -155,6 +155,8 @@ if (!class_exists("Uptime_Robot")) {
 
 			if (isset($data['uptimerobot_log_items'])) { update_option('uptimerobot_log_items', $data['uptimerobot_log_items']); }
 			else { delete_option('uptimerobot_log_items'); }
+
+			delete_option( 'uptimerobot_cache' );
 		}
 
 	} // end class definition

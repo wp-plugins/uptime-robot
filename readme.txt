@@ -2,7 +2,7 @@
 Contributors: scottnelle
 Tags: uptime, monitoring, server
 Requires at least: 3.5
-Tested up to: 3.5.1
+Tested up to: 3.6.1
 Stable tag: 0.1.1
 License: GPLv2 or later
 
@@ -37,6 +37,8 @@ You can use either your Main API Key to pull in all Monitors, or a Monitor-Speci
 1. Dashboard Widget
 
 == Changelog ==
+= 0.1.2 =
+* Deleting cache data when settings are updated
 
 = 0.1.1 =
 * Data now pulls via AJAX to keep the dashboard speedy
