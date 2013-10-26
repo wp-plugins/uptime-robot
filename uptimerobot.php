@@ -6,7 +6,7 @@
 Plugin Name: Uptime Robot
 Plugin URI: http://mightyworker.com/
 Description: Add a dashboard widget to monitor Uptime Robot 
-Version: 0.1.2
+Version: 0.1.3
 Author: Scott Nellé
 Author URI: http://mightyworker.com/
 License: GPLv2 or later
@@ -90,16 +90,16 @@ if (!class_exists("Uptime_Robot")) {
 					foreach ($monitor->log as $event) {
 						switch ($event->type) {
 							case 1:
-								$prefix = '<span style="color:#c00">Down at ';
+								$prefix = '<span style="color:#800">Down at ';
 								break;
 							case 2:
-								$prefix = '<span style="color:#080">Up at ';
+								$prefix = '<span>Up at ';
 								break;
 							case 99:
-								$prefix = '<span style="color:#666">Paused at ';
+								$prefix = '<span style="color:#bbb">Paused at ';
 								break;
 							case 98:
-								$prefix = '<span style="color:#000">Started at ';
+								$prefix = '<span>Started at ';
 								break;
 						}
 

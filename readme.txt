@@ -2,8 +2,8 @@
 Contributors: scottnelle
 Tags: uptime, monitoring, server
 Requires at least: 3.5
-Tested up to: 3.6.1
-Stable tag: 0.1.1
+Tested up to: 3.7
+Stable tag: 0.1.3
 License: GPLv2 or later
 
 A dashboard widget for monitoring your uptimerobot.com log messages
@@ -37,6 +37,9 @@ You can use either your Main API Key to pull in all Monitors, or a Monitor-Speci
 1. Dashboard Widget
 
 == Changelog ==
+= 0.1.3 =
+* Updating dashboard widget with more subdued colors
+
 = 0.1.2 =
 * Deleting cache data when settings are updated
 
