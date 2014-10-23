@@ -2,7 +2,7 @@
 Contributors: scottnelle
 Tags: uptime, monitoring, server
 Requires at least: 3.5
-Tested up to: 3.7
+Tested up to: 4.0
 Stable tag: 0.1.3
 License: GPLv2 or later
 
